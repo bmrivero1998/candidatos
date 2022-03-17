@@ -14,8 +14,13 @@ public class UsuarioDaoService {
 		return usuarios;
 	}
 	
-	public Usuario update(Usuario usuario){
-		return usuarios.set(usuario.getId(), usuario);
+	public Usuario update(Integer id,Usuario usuario){
+		Usuario tmp = usuario;
+		tmp.setId(id);
+		usuarios.set((id-1), tmp);
+		tmp = usuarios.get(id);
+		return tmp;
+		
 	}
 	
 	public Usuario save(Usuario usuario) {

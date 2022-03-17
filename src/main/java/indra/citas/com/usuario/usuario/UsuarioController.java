@@ -43,11 +43,30 @@ public class UsuarioController {
 	public Usuario obtenerUsuario(@PathVariable Integer id) {
 		return service.find(id);
 	}
-	
+
+	@Operation(description = "es utilizado para obtener la informacion"
+			+ " de todos los candidatos")
+		@ApiResponse(responseCode = "200", 
+		description = "Ok",
+		content = {@Content(mediaType = "application/json", schema = @Schema(implementation = Usuario.class))})
+		@ApiResponse(responseCode = "404", 
+		description = "no se encontro informacion",
+		content = {@Content(mediaType = "application/json")})
+
 	@GetMapping("usuarios/")
 	public List<Usuario> obtenerUsuario() {
 		return service.findAll();
 	}
+
+	
+	@Operation(description = "es utilizado para generar un nuevo"
+			+ "usuario")
+		@ApiResponse(responseCode = "201", 
+		description = "Se a creado el usuario",
+		content = {@Content(mediaType = "application/json", schema = @Schema(implementation = Usuario.class))})
+		@ApiResponse(responseCode = "400", 
+		description = "Error",
+		content = {@Content(mediaType = "application/json")})
 	
 	@PostMapping("/usuarios")
 	public ResponseEntity<Object> crearUsuario(@Valid @RequestBody Usuario usuario ) {
@@ -74,7 +93,7 @@ public class UsuarioController {
 	@PutMapping("/usuarios/{id}")
 	public Usuario modificarUsuario(@Valid @RequestBody Usuario usuario,
 			@PathVariable Integer id) {
-		return service.update(usuario);
+		return service.update(id,usuario);
 	}
 	
 }

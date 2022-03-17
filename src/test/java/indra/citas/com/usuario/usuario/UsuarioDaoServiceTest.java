@@ -28,13 +28,13 @@ public class UsuarioDaoServiceTest {
 	public void testUpdate() throws Exception {
 		UsuarioDaoService testSubject;
 		Usuario usuario = null;
-		Usuario nuevoUsuario = null;
 		Usuario result;
+		Integer id =0;
 
 		// default test
 		testSubject = createTestSubject();
-		result = testSubject.update(usuario);
-		assertEquals(result,testSubject.update(usuario));
+		result = testSubject.update(id,usuario);
+		assertEquals(result,testSubject.update(id,usuario));
 	}
 
 	@Test
