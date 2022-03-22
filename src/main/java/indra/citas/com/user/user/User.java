@@ -1,4 +1,4 @@
-package indra.citas.com.usuario.usuario;
+package indra.citas.com.user.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @NoArgsConstructor @AllArgsConstructor @Getter @Setter
-public class Usuario {
+public class User {
 
 	private Integer id;
 	private String nombre;
